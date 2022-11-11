@@ -10,20 +10,18 @@ class Point2D {
         this.y = Number(readline.question('Nhap tung do: '));
     }
     print() {
-        console.log('diem co toa do la: ' + this.x , this.y);
+        console.log('Điểm có toạ độ là: ' + this.x , this.y);
     }
     getDistance(point) {
         let d = Math.sqrt((point.x - this.x)**2 + (point.y - this.y)**2)
         return d;
 
     }
-    // move(dx, dy) {
-    //     dx = readline.question('Nhap khoang cach di chuyen theo hoanh do ');
-    //     dy = readline.question('Nhap khoang cach di chuyen theo tung do ');
-    //     x = this.x + dx;
-    //     y = this.y + dy;
-    //     return [x, y];
-    // }
+    move(dx, dy) {
+        this.x = this.x + dx;
+        this.y = this.y + dy;
+        console.log(`Toa do moi sau khi di chuyen la: ${this.x} va ${this.y}`);
+    }
 }
 
 function taoPoint2D() {
@@ -34,7 +32,7 @@ function taoPoint2D() {
     p1.print();
     // const distance = p1.getDistance(p2);
     // console.log(`khoang cach giua 2 diem la: ${distance}`);
-    // p1.move(x,y);
+    p1.move(2,3);
 }
 taoPoint2D();
 
@@ -55,6 +53,7 @@ class Circle {
     print() {
         console.log(this);
     }
+    
     getArea() {
         const dienTich = this.banKinh ** 2 * 3.14;
         console.log(dienTich);
