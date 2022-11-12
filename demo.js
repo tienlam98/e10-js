@@ -6,21 +6,20 @@ class Point2D {
         this.y = y;
     }
     scan() {
-        this.x = Number(readline.question('Nhap hoanh do: '));
-        this.y = Number(readline.question('Nhap tung do: '));
+        this.x = Number(readline.question(`Nhap hoanh do: `));
+        this.y = Number(readline.question(`Nhap tung do: `));
     }
     print() {
-        console.log('Điểm có toạ độ là: ' + this.x , this.y);
+        console.log(`Điểm có toạ độ là:  + ${this.x} , ${this.y}`);
     }
     getDistance(point) {
-        let d = Math.sqrt((point.x - this.x)**2 + (point.y - this.y)**2)
+        let d = Math.sqrt((point.x - this.x)**2 + (point.y - this.y)**2);
         return d;
 
     }
     move(dx, dy) {
         this.x = this.x + dx;
         this.y = this.y + dy;
-        console.log(`Toa do moi sau khi di chuyen la: ${this.x} va ${this.y}`);
     }
 }
 
@@ -33,6 +32,7 @@ function taoPoint2D() {
     // const distance = p1.getDistance(p2);
     // console.log(`khoang cach giua 2 diem la: ${distance}`);
     p1.move(2,3);
+    p1.print();
 }
 taoPoint2D();
 
@@ -41,35 +41,29 @@ taoPoint2D();
 //bai 2 Circle
 class Circle {
     constructor(tam, banKinh) {
-        this.tam = tam;
+        this.tam = new Point2D(tam.x, tam.y);
         this.banKinh = banKinh;
     }
     scan() {
-        const x = Number(readline.question('nhap hoanh do point2D moi '));
-        const y = Number(readline.question('nhap tung do point2D moi '));
-        const newTam = new Point2D(x, y);
-        this.tam = newTam;
+        this.banKinh = Number(readline.question(`Nhap ban kinh hinh tron: `));
+        this.tam.scan();
     }
     print() {
         console.log(this);
-    }
-    
+    }  
     getArea() {
         const dienTich = this.banKinh ** 2 * 3.14;
-        console.log(dienTich);
+        return dienTich;
     }
 }
 
 function chayBai2() {
     const n2 = new Point2D(4, 4);
-    const n3 = new Point2D(5, 5);
     const circle1 = new Circle(n2, 5);
-    const circle2 = new Circle(n3, 6);
     console.log(circle1);
     circle1.scan();
     circle1.print();
-    circle1.getArea();
-    circle2.getArea();
+    console.log(circle1.getArea());
 }
 chayBai2();
 
@@ -101,7 +95,7 @@ function chayBai03() {
     rectangle1.print();
     rectangle1.getArea();
 }
-chayBai03();
+// chayBai03();
 
 
 // bai03 Square
@@ -133,4 +127,4 @@ function chayBai04() {
     square1.print();
     square1.getArea();
 }
-chayBai04();
+// chayBai04();
