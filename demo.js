@@ -25,16 +25,16 @@ class Point2D {
 
 function taoPoint2D() {
     let p1 = new Point2D(4,6);
-    p1.scan();
+    // p1.scan();
     // let p2 = new Point2D(4,6);
     // p2.scan();
-    p1.print();
-    // const distance = p1.getDistance(p2);
-    // console.log(`khoang cach giua 2 diem la: ${distance}`);
-    p1.move(2,3);
-    p1.print();
+    // p1.print();
+    // // const distance = p1.getDistance(p2);
+    // // console.log(`khoang cach giua 2 diem la: ${distance}`);
+    // p1.move(2,3);
+    // p1.print();
 }
-taoPoint2D();
+// taoPoint2D();
 
 
 
@@ -65,35 +65,35 @@ function chayBai2() {
     circle1.print();
     console.log(circle1.getArea());
 }
-chayBai2();
+// chayBai2();
 
 class Rectangle {
     constructor(toaDo, dai, rong) {
-        this.toaDo = toaDo;
+        this.toaDo = new Point2D(toaDo.x, toaDo.y);
         this.dai = dai;
         this.rong = rong;
     }
     scan() {
-        const x = Number(readline.question('nhap hoanh do point2D moi '));
-        const y = Number(readline.question('nhap tung do point2D moi '));
-        const toaDoMoi = new Point2D(x, y);
-        this.toaDo = toaDoMoi;
+        this.toaDo.scan();
+        this.dai = Number(readline.question(`Nhap chieu dai: `));
+        this.rong = Number(readline.question(`Nhap chieu rong: `));
     }
     print() {
-        console.log(this.toaDo);
+        console.log(this);
     }
     getArea() {
         const dienTichChuNhat = this.dai * this.rong;
-        console.log(`dien tich hinh chu nhat la ${dienTichChuNhat}`);
+        return dienTichChuNhat;
     }
 }
 
 function chayBai03() {
-    const r1 = new Point2D(5, 10);
-    const rectangle1 = new Rectangle(r1, 20, 10);
-    console.log(rectangle1);
-    rectangle1.print();
-    rectangle1.getArea();
+    const t1 = new Point2D (6,9);
+    const r1 = new Rectangle(t1, 10, 20);
+    r1.scan();
+    console.log(r1);
+    r1.print();
+    console.log(`Dien tich hinh chu nhat la: ${r1.getArea()}`);
 }
 // chayBai03();
 
@@ -101,21 +101,19 @@ function chayBai03() {
 // bai03 Square
 class Square {
     constructor(toaDoHinhVuong, chieuDaiCanh) {
-        this.toaDoHinhVuong = toaDoHinhVuong;
+        this.toaDoHinhVuong = new Point2D(toaDoHinhVuong.x, toaDoHinhVuong.y);
         this.chieuDaiCanh = chieuDaiCanh;
     }
     scan() {
-        const x = Number(readline.question('nhap hoanh do moi cho hinh vuong: '));
-        const y = Number(readline.question('nhap tung do moi cho hinh vuong: '));
-        const toaDoHinhVuongMoi = new Point2D(x, y);
-        this.toaDoHinhVuong = toaDoHinhVuongMoi;
+        this.toaDoHinhVuong.scan();
+        this.chieuDaiCanh = Number(readline.question(`Nhap chieu dai canh hinh vuong: `));
     }
     print() {
-        console.log(this.toaDoHinhVuong);
+        console.log(this);
     }
     getArea() {
         const dienTichHinhVuong = this.chieuDaiCanh **2;
-        console.log(`dien tich hinh vuong la: ${dienTichHinhVuong}`);
+        return dienTichHinhVuong;
     }
 }
 
@@ -125,6 +123,6 @@ function chayBai04() {
     console.log(square1);
     square1.scan();
     square1.print();
-    square1.getArea();
+    console.log(`Dien tich hinh vuong la: ${square1.getArea()}`);
 }
-// chayBai04();
+chayBai04();
